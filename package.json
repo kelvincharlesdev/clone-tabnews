@@ -4,7 +4,10 @@
   "description": "Projeto para treinar e aperfeiçoar a programação de forma geral do inicio ao deploy.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run service:up && next dev",
+    "service:up": "docker compose -f infra/compose.yaml up -d",
+    "service:down": "docker compose -f infra/compose.yaml down",
+    "service:stop": "docker compose -f infra/compose.yaml stop",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
